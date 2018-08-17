@@ -40,9 +40,19 @@ endif
 " set compatible line endings in order of preference
 set fileformats=unix,dos
 
+" {rtp}/autoload/has.vim
+function! has#colorscheme(name)
+    pat = 'colors/'.a:name.'.vim'
+    return !empty(globpath(&rtp, pat))
+endfunction
+
 " colorscheme
 set background=dark
-colorscheme gruvbox
+
+if has#colorscheme('gruvbox')
+	colorscheme gruvbox
+endif
+
 set t_Co=256
 let base16colorspace=256
 
