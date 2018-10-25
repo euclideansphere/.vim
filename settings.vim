@@ -40,18 +40,10 @@ endif
 " set compatible line endings in order of preference
 set fileformats=unix,dos
 
-" {rtp}/autoload/has.vim
-function! has#colorscheme(name)
-    pat = 'colors/'.a:name.'.vim'
-    return !empty(globpath(&rtp, pat))
-endfunction
-
 " colorscheme
 set background=dark
 
-if has#colorscheme('gruvbox')
-	colorscheme gruvbox
-endif
+silent! colorscheme gruvbox
 
 set t_Co=256
 let base16colorspace=256
@@ -80,7 +72,7 @@ filetype plugin indent on
 
 " show whitespace as hidden characters
 set list
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 
 " disable auto commenting for all files
 au FileType * set fo-=c fo-=r fo-=o
