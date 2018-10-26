@@ -3,7 +3,7 @@
 vim_dir=".vim"
 install_dir="$HOME/$vim_dir"
 bundle_dir="$install_dir/bundle"
-vundle_dir="$bundle_dir/vundle.vim"
+vundle_dir="$bundle_dir/Vundle.vim"
 
 vundle_remote="git@github.com:VundleVim/Vundle.vim.git"
 
