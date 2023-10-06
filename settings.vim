@@ -31,14 +31,19 @@ syntax on
 " allow cursor after line end
 set virtualedit=onemore
 
-" UTF-8
 if has("multi_byte")
-	if &termencoding == ""|let &termencoding = &encoding|endif
-	set encoding=utf-8
-	setglobal fileencoding=utf-8
+  if &encoding !~? '^u'
+    if &termencoding == ""
+      let &termencoding = &encoding
+    endif
+    set encoding=utf-8
+  endif
+  setglobal fileencoding=utf-8
+  " Uncomment to have 'bomb' on by default for new files.
+  " Note, this will not apply to the first, empty buffer created at Vim startup.
+  "setglobal bomb
+  set fileencodings=ucs-bom,utf-8,latin1
 endif
-" set compatible line endings in order of preference
-set fileformats=unix,dos
 
 " colorscheme
 set background=dark
@@ -61,10 +66,10 @@ set magic
 " indentation
 " keep indentation level on newline
 set autoindent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set noexpandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
 
 " filetype stuff
 " allow filetype specific indentation
@@ -72,7 +77,8 @@ filetype plugin indent on
 
 " show whitespace as hidden characters
 set list
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
+set showbreak=↪\
+set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 
 " disable auto commenting for all files
 au FileType * set fo-=c fo-=r fo-=o

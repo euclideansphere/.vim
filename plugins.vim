@@ -13,3 +13,13 @@ Plugin 'vim-airline/vim-airline-themes'
 " nerdtree - file browser
 Plugin 'preservim/nerdtree'
 
+" lang
+
+" javascript
+Plugin 'pangloss/vim-javascript'
+Plugin 'MaxMEllon/vim-jsx-pretty'
+
+" typescript
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
+
